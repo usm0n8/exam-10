@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f3MyuU6gjGg=",
+  "dgSpecHash": "x5MWdSW1LZ0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\НР\\Desktop\\exam-10\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\НР\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\НР\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.9\\microsoft.aspnetcore.authentication.jwtbearer.10.0.9.nupkg.sha512",

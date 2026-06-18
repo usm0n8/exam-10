@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\НР\\Desktop\\exam-10\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\Application.csproj": {
+    "C:\\Users\\НР\\Desktop\\exam-10\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\НР\\Desktop\\exam-10\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\НР\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\obj\\",
+        "outputPath": "C:\\Users\\НР\\Desktop\\exam-10\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\НР\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj"
+              "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj"
               }
             }
           }
@@ -341,14 +341,14 @@
         }
       }
     },
-    "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj": {
+    "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\НР\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\НР\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -680,14 +680,14 @@
         }
       }
     },
-    "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\НР\\Desktop\\exam-10\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\НР\\Desktop\\exam-10\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\НР\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\НР\\Desktop\\exam-10\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\НР\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -702,11 +702,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Application\\Application.csproj"
+              "C:\\Users\\НР\\Desktop\\exam-10\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Application\\Application.csproj"
               },
-              "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\НР\\Downloads\\Telegram Desktop\\exam-10\\exam-10\\Domain\\Domain.csproj"
+              "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\НР\\Desktop\\exam-10\\Domain\\Domain.csproj"
               }
             }
           }

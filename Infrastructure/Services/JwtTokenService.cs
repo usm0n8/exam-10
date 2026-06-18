@@ -15,10 +15,10 @@ public class JwtTokenService(
     UserManager<User> userManager, 
     IOptions<JwtSettings> jwtOptions) : IJwtTokenService
 {
-    public string GenerateToken(User user)
+    public async Task<string> GenerateToken(User user)
     {
         var settings = jwtOptions.Value;
-        var roles = userManager.GetRolesAsync(user).Result;
+        var roles = await userManager.GetRolesAsync(user);
 
         var claims = new List<Claim>
         {
@@ -44,5 +44,10 @@ public class JwtTokenService(
         var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
+    }
+
+    string IJwtTokenService.GenerateToken(User user)
+    {
+        throw new NotImplementedException();
     }
 }

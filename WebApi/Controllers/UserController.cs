@@ -22,7 +22,7 @@ public class UsersController(IUserService userService) : BaseController
         return Ok(result.Data);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(string id)
     {
         var result = await userService.GetByIdAsync(id);
@@ -44,7 +44,7 @@ public class UsersController(IUserService userService) : BaseController
         return Ok(result.Data);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(string id, [FromBody] UpdateUserDto dto)
     {
         var result = await userService.UpdateAsync(id, dto);
@@ -55,7 +55,7 @@ public class UsersController(IUserService userService) : BaseController
         return Ok(result.Data);
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(string id)
     {
         var result = await userService.DeleteAsync(id);

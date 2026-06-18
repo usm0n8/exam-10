@@ -10,3 +10,16 @@ C:\Users\Admin\Desktop\Exam 10\Domain\obj\Debug\net10.0\Domain.dll
 C:\Users\Admin\Desktop\Exam 10\Domain\obj\Debug\net10.0\refint\Domain.dll
 C:\Users\Admin\Desktop\Exam 10\Domain\obj\Debug\net10.0\Domain.pdb
 C:\Users\Admin\Desktop\Exam 10\Domain\obj\Debug\net10.0\ref\Domain.dll
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.csproj.AssemblyReference.cache
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.sourcelink.json
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\НР\Downloads\Telegram Desktop\exam-10\exam-10\Domain\obj\Debug\net10.0\ref\Domain.dll
