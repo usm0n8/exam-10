@@ -8,7 +8,6 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/users")]
-[Authorize(Roles = UserRoles.Admin)]
 public class UsersController(IUserService userService) : BaseController
 {
     [HttpGet]

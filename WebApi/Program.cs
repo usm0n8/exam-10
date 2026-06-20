@@ -1,10 +1,12 @@
 using System.Text;
 using Application.DTOs.Settings;
 using Application.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
 using Application.Services;
 using Domain.Entities;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Infrastructure.Data;
-using Infrastructure.Seed;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -12,11 +14,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using WebApi.MiddleWare;
+using Infrastructure.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddHangfire(config => config.UsePostgreSqlStorage(options => options.UseNpgsqlConnection(
+    builder.Configuration.GetConnectionString("DefaultConnection"))));
+
+builder.Services.AddHangfireServer();
 
 builder.Services.AddCors(options =>
 {
@@ -72,6 +80,18 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>(); 
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<Application.Interfaces.IMemoryCache, MemoryService>();
+builder.Services.AddScoped<IRedisCache, RedisCacheService>();
+builder.Services.AddSingleton<IRedisCache, RedisCacheService>();
+builder.Services.AddMemoryCache();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration =
+        builder.Configuration.GetConnectionString("Redis");
+
+    options.InstanceName = "ExamApi_";
+});
 
 builder.Services.AddSwaggerGen(options =>
 {
@@ -102,12 +122,15 @@ using (var scope = app.Services.CreateScope())
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseHangfireDashboard("/hangfire");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<LoggingMiddleWare>();
+app.UseStaticFiles();
 
+app.UseHttpsRedirection();
 app.UseHttpsRedirection();
 app.UseCors();
 app.UseAuthentication();

@@ -11,30 +11,38 @@ namespace Application.Services;
 public class UserService(
     UserManager<User> userManager,
     RoleManager<IdentityRole> roleManager,
-    ILogger<UserService> logger) : IUserService
+    ILogger<UserService> logger,
+    IMemoryCache memoryCacheService,
+    IRedisCache redisCacheService) : IUserService
 {
     public async Task<Result<List<GetUserDto>>> GetAllAsync()
     {
-        var users = userManager.Users.ToList();
-        var result = new List<GetUserDto>();
+        const string cacheKey = "Users";
+        var usersInCache = await redisCacheService.GetAsync<List<GetUserDto>>(cacheKey);
 
-        foreach (var user in users)
+        if (usersInCache == null)
         {
-            var roles = await userManager.GetRolesAsync(user);
-            result.Add(new GetUserDto
+            var users = userManager.Users.ToList();
+            var userDto = users.Select(u => new GetUserDto
             {
-                Id = user.Id,
-                Email = user.Email!,
-                FullName = user.FullName!,
-                Roles = roles.ToList()
-            });
+                Id = u.Id,
+                FullName = u.FullName!,
+                Email = u.Email!
+            }).ToList();
+            await redisCacheService.SetAsync<List<GetUserDto>>(cacheKey,userDto,1);
+            return  Result<List<GetUserDto>>.Ok(userDto);
         }
-
-        return Result<List<GetUserDto>>.Ok(result);
+        
+        return Result<List<GetUserDto>>.Ok(usersInCache);
     }
 
     public async Task<Result<GetUserDto>> GetByIdAsync(string id)
     {
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            logger.LogWarning("Id is required");
+            return Result<GetUserDto>.Fail("Id is required", ErrorType.Validation);
+        }        
         var user = await userManager.FindByIdAsync(id);
         if (user == null)
         {
@@ -54,6 +62,31 @@ public class UserService(
 
     public async Task<Result<GetUserDto>> CreateAsync(CreateUserDto dto)
     {
+        if (string.IsNullOrWhiteSpace(dto.Email))
+        {
+            logger.LogWarning("Email is required");
+            return Result<GetUserDto>.Fail("Email is required", ErrorType.Validation);
+        }
+        if (string.IsNullOrWhiteSpace(dto.Password))
+        {
+            logger.LogWarning("Password is required");
+            return Result<GetUserDto>.Fail("Password is required", ErrorType.Validation);
+        }
+        if (string.IsNullOrWhiteSpace(dto.FullName))
+        {
+            logger.LogWarning("FullName is required");
+            return Result<GetUserDto>.Fail("FullName is required", ErrorType.Validation);
+        }
+        if (string.IsNullOrWhiteSpace(dto.Role))
+        {
+            logger.LogWarning("Role is required");
+            return Result<GetUserDto>.Fail("Role is required", ErrorType.Validation);
+        }
+        if (dto.Role != UserRoles.Admin && dto.Role != UserRoles.Manager && dto.Role != UserRoles.User)
+        {
+            logger.LogWarning("Invalid role");
+            return Result<GetUserDto>.Fail("Invalid role. Must be Admin, Manager or User", ErrorType.Validation);
+        }        
         var existing = await userManager.FindByEmailAsync(dto.Email);
         if (existing != null)
         {
@@ -95,6 +128,21 @@ public class UserService(
 
     public async Task<Result<GetUserDto>> UpdateAsync(string id, UpdateUserDto dto)
     {
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            logger.LogWarning("Id is required");
+            return Result<GetUserDto>.Fail("Id is required", ErrorType.Validation);
+        }
+        if (dto.Email != null && !dto.Email.Contains("@"))
+        {
+            logger.LogWarning("Email is required");
+            return Result<GetUserDto>.Fail("Invalid email format", ErrorType.Validation);
+        }
+        if (dto.Role != UserRoles.Admin && dto.Role != UserRoles.Manager && dto.Role != UserRoles.User)
+        {
+            logger.LogWarning("Invalid role");
+            return Result<GetUserDto>.Fail("Invalid role. Must be Admin, Manager or User", ErrorType.Validation);
+        }        
         var user = await userManager.FindByIdAsync(id);
         if (user == null)
         {
@@ -141,6 +189,11 @@ public class UserService(
 
     public async Task<Result<bool>> DeleteAsync(string id)
     {
+        if (string.IsNullOrWhiteSpace(id))
+        {
+            logger.LogWarning("Id is required");
+            return Result<bool>.Fail("Id is required", ErrorType.Validation);
+        }
         var user = await userManager.FindByIdAsync(id);
         if (user == null)
         {
